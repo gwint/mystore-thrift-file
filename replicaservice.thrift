@@ -29,7 +29,8 @@ struct Entry {
     4: i32 term,
     5: string clientIdentifier,
     6: i32 requestIdentifier,
-    7: list<ID> newConfiguration
+    7: list<ID> newConfiguration,
+    8: set<ID> nonVotingMembers
 }
 
 struct AppendEntryResponse {
