@@ -98,8 +98,6 @@ service ReplicaService {
 
     map<string, string> getInformation(),
 
-    oneway void start(),
-
     i32 installSnapshot(1:i32 leaderTerm,
                         2:ID leaderID,
                         3:i32 lastIncludedIndex,
