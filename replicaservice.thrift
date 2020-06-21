@@ -66,6 +66,17 @@ struct DelResponse {
     2: ID leaderID
 }
 
+struct GetInformationResponse {
+    1: bool success,
+    2: map<ID, map<string, string>> clusterInformation
+}
+
+struct GetInformationHelperResponse {
+    1: bool success,
+    2: i32 term,
+    3: map<string, string> replicaInformation
+}
+
 service ReplicaService {
 
     Ballot requestVote(1:i32 term,
@@ -96,7 +107,9 @@ service ReplicaService {
 
     oneway void kill(),
 
-    map<string, string> getInformation(),
+    GetInformationResponse getInformation(),
+
+    GetInformationHelperResponse getInformationHelper(1:i32 term),
 
     i32 installSnapshot(1:i32 leaderTerm,
                         2:ID leaderID,
