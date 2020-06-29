@@ -68,7 +68,8 @@ struct DelResponse {
 
 struct GetInformationResponse {
     1: bool success,
-    2: map<ID, map<string, string>> clusterInformation
+    2: ID leaderID,
+    3: map<ID, map<string, string>> clusterInformation
 }
 
 struct GetInformationHelperResponse {
