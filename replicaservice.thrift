@@ -14,7 +14,7 @@
  *
  */
 
-cpp_include "<unordered_map>"
+cpp_include "<unordered_set>"
 
 enum EntryType {
     EMPTY_ENTRY = 1,
@@ -22,6 +22,11 @@ enum EntryType {
     DEL_MAPPING_ENTRY = 3,
     CONFIG_CHANGE_ENTRY = 4,
     NOOP_ENTRY = 5
+}
+
+struct ID {
+    1: string hostname,
+    2: i32 port
 }
 
 struct Entry {
@@ -32,7 +37,7 @@ struct Entry {
     5: string clientIdentifier,
     6: i32 requestIdentifier,
     7: list<ID> newConfiguration,
-    8: set<ID> nonVotingMembers
+    8: set cpp_type "std::unordered_set<ID>" <ID> nonVotingMembers
 }
 
 struct AppendEntryResponse {
@@ -45,11 +50,6 @@ struct AppendEntryResponse {
 struct Ballot {
     1: bool voteGranted,
     2: i32 term
-}
-
-struct ID {
-    1: string hostname,
-    2: i32 port
 }
 
 struct PutResponse {
