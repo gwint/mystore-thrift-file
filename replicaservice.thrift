@@ -14,6 +14,8 @@
  *
  */
 
+cpp_include "<unordered_map>"
+
 enum EntryType {
     EMPTY_ENTRY = 1,
     SET_MAPPING_ENTRY = 2,
