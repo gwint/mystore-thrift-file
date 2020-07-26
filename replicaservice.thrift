@@ -14,8 +14,6 @@
  *
  */
 
-cpp_include "<unordered_set>"
-
 enum EntryType {
     EMPTY_ENTRY = 1,
     SET_MAPPING_ENTRY = 2,
@@ -37,7 +35,7 @@ struct Entry {
     5: string clientIdentifier,
     6: i32 requestIdentifier,
     7: list<ID> newConfiguration,
-    8: set cpp_type "std::unordered_set<ID>" <ID> nonVotingMembers
+    8: set<ID> nonVotingMembers
 }
 
 struct AppendEntryResponse {
