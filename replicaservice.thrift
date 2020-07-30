@@ -22,6 +22,12 @@ enum EntryType {
     NOOP_ENTRY = 5
 }
 
+enum ReplicaState {
+    FOLLOWER = 1,
+    CANDIDATE = 2,
+    LEADER = 3
+}
+
 struct ID {
     1: string hostname,
     2: i32 port
