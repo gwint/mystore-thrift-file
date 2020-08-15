@@ -78,6 +78,12 @@ struct GetInformationHelperResponse {
     3: map<string, string> replicaInformation
 }
 
+struct AddConfigResponse {
+    1: bool success,
+    2: i32 term,
+    3: ID leaderID
+}
+
 service ReplicaService {
 
     Ballot requestVote(1:i32 term,
@@ -120,7 +126,7 @@ service ReplicaService {
                         6:binary data,
                         7:bool done),
 
-    bool addNewConfiguration(1:list<ID> endpoints,
-                             2:string clientIdentifier,
-                             3:i32 requestIdentifier)
+    AddConfigResponse addNewConfiguration(1:list<ID> endpoints,
+                                          2:string clientIdentifier,
+                                          3:i32 requestIdentifier)
 }
